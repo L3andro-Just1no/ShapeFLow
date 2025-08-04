@@ -24,7 +24,7 @@
         android:fullBackupContent="true"
         android:enableOnBackInvokedCallback="true">
         <activity
-            android:name=".MainActivity"
+            android:name="com.shapeflow.app.shapeflow.MainActivity"
             android:exported="true"
             android:launchMode="singleTop"
             android:taskAffinity=""
