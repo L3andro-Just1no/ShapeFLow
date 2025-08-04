@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import '../providers/app_provider.dart';
 import 'signin_screen.dart';
+import 'signup_screen.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -182,7 +183,11 @@ class OnboardingScreen extends StatelessWidget {
                            height: 50,
                            child: ElevatedButton(
                              onPressed: () {
-                               context.read<AppProvider>().setOnboarded(true);
+                               Navigator.of(context).push(
+                                 MaterialPageRoute(
+                                   builder: (context) => const SignUpScreen(),
+                                 ),
+                               );
                              },
                              style: ElevatedButton.styleFrom(
                                backgroundColor: Colors.transparent,
