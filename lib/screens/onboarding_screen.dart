@@ -1,0 +1,361 @@
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
+import '../providers/app_provider.dart';
+
+class OnboardingScreen extends StatelessWidget {
+  const OnboardingScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          color: Colors.black,
+        ),
+        child: Stack(
+          children: [
+            // Background Image with Overlay
+            Positioned.fill(
+              child: Container(
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/clean-workout-hero.png'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Colors.black.withValues(alpha: 0.3),
+                        Colors.transparent,
+                        Colors.black.withValues(alpha: 0.7),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            
+            // Content
+            SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.all(24.0),
+                child: Column(
+                  children: [
+                    // Header Section
+                    Expanded(
+                      flex: 2,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 64),
+                          
+                          // Logo and Brand
+                          Row(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(12),
+                                decoration: BoxDecoration(
+                                  color: Colors.green.withValues(alpha: 0.2),
+                                  borderRadius: BorderRadius.circular(50),
+                                  border: Border.all(
+                                    color: Colors.green.withValues(alpha: 0.3),
+                                  ),
+                                ),
+                                child: const FaIcon(
+                                  FontAwesomeIcons.dumbbell,
+                                  color: Colors.green,
+                                  size: 28,
+                                ),
+                              ),
+                              const SizedBox(width: 12),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    'FITPRO',
+                                    style: TextStyle(
+                                      color: Colors.green,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                      letterSpacing: 1.0,
+                                    ),
+                                  ),
+                                  Text(
+                                    'Next-Gen Fitness',
+                                    style: TextStyle(
+                                      color: Colors.grey[400],
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          
+                          const SizedBox(height: 32),
+                          
+                          // Main Heading
+                          const Text(
+                            'TRANSFORM\nYOUR\n',
+                            style: TextStyle(
+                              fontSize: 48,
+                              fontWeight: FontWeight.w900,
+                              color: Colors.white,
+                              height: 1.1,
+                              letterSpacing: -1.0,
+                            ),
+                          ),
+                          ShaderMask(
+                            shaderCallback: (bounds) => const LinearGradient(
+                              colors: [Colors.green, Colors.teal],
+                            ).createShader(bounds),
+                            child: const Text(
+                              'LIMITS',
+                              style: TextStyle(
+                                fontSize: 48,
+                                fontWeight: FontWeight.w900,
+                                color: Colors.white,
+                                height: 1.1,
+                                letterSpacing: -1.0,
+                              ),
+                            ),
+                          ),
+                          
+                          const SizedBox(height: 24),
+                          
+                          // Description
+                          Text(
+                            'Unlock your potential with AI-powered workouts designed to push you beyond what you thought possible',
+                            style: TextStyle(
+                              color: Colors.grey[300],
+                              fontSize: 18,
+                              height: 1.5,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    
+                    // Bottom Section
+                    Expanded(
+                      flex: 3,
+                      child: Column(
+                        children: [
+                          // Feature Pills
+                          Wrap(
+                            spacing: 12,
+                            runSpacing: 12,
+                            children: [
+                              _buildFeaturePill(
+                                icon: FontAwesomeIcons.bolt,
+                                text: 'AI Powered',
+                              ),
+                              _buildFeaturePill(
+                                icon: FontAwesomeIcons.bullseye,
+                                text: 'Personalized',
+                              ),
+                              _buildFeaturePill(
+                                icon: FontAwesomeIcons.trophy,
+                                text: 'Results Driven',
+                              ),
+                            ],
+                          ),
+                          
+                          const SizedBox(height: 32),
+                          
+                          // Get Started Button
+                          SizedBox(
+                            width: double.infinity,
+                            height: 64,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                // TODO: Navigate to next screen
+                                context.read<AppProvider>().setOnboarded(true);
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.transparent,
+                                foregroundColor: Colors.white,
+                                elevation: 0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                padding: EdgeInsets.zero,
+                                                             ).copyWith(
+                                 backgroundColor: WidgetStateProperty.all(Colors.transparent),
+                               ),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  gradient: const LinearGradient(
+                                    colors: [Colors.green, Colors.teal],
+                                  ),
+                                  borderRadius: BorderRadius.circular(16),
+                                                                   border: Border.all(
+                                   color: Colors.green.withValues(alpha: 0.3),
+                                 ),
+                                ),
+                                child: const Center(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'Start Your Journey',
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      SizedBox(width: 12),
+                                      FaIcon(
+                                        FontAwesomeIcons.arrowRight,
+                                        color: Colors.white,
+                                        size: 24,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          
+                          const SizedBox(height: 32),
+                          
+                          // Sign In Link
+                          Column(
+                            children: [
+                              Text(
+                                'Already crushing your goals?',
+                                style: TextStyle(
+                                  color: Colors.grey[400],
+                                  fontSize: 16,
+                                ),
+                              ),
+                              const SizedBox(height: 12),
+                              GestureDetector(
+                                onTap: () {
+                                  // TODO: Navigate to sign in screen
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.only(bottom: 4),
+                                  decoration: const BoxDecoration(
+                                    border: Border(
+                                      bottom: BorderSide(
+                                        color: Colors.green,
+                                        width: 2,
+                                      ),
+                                    ),
+                                  ),
+                                  child: const Text(
+                                    'Sign In Here',
+                                    style: TextStyle(
+                                      color: Colors.green,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          
+                          const SizedBox(height: 32),
+                          
+                          // Stats Section
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                _buildStatItem('1M+', 'Active Users'),
+                                Container(
+                                  width: 1,
+                                  height: 48,
+                                  color: Colors.grey[600],
+                                ),
+                                _buildStatItem('500+', 'Workouts'),
+                                Container(
+                                  width: 1,
+                                  height: 48,
+                                  color: Colors.grey[600],
+                                ),
+                                _buildStatItem('98%', 'Success Rate'),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildFeaturePill({
+    required IconData icon,
+    required String text,
+  }) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+             decoration: BoxDecoration(
+         color: Colors.white.withValues(alpha: 0.1),
+         borderRadius: BorderRadius.circular(50),
+         border: Border.all(
+           color: Colors.white.withValues(alpha: 0.2),
+         ),
+       ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          FaIcon(
+            icon,
+            color: Colors.green,
+            size: 16,
+          ),
+          const SizedBox(width: 8),
+          Text(
+            text,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildStatItem(String value, String label) {
+    return Column(
+      children: [
+        Text(
+          value,
+          style: const TextStyle(
+            color: Colors.green,
+            fontWeight: FontWeight.w900,
+            fontSize: 24,
+          ),
+        ),
+        Text(
+          label,
+          style: TextStyle(
+            color: Colors.grey[400],
+            fontSize: 12,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ],
+    );
+  }
+} 
