@@ -53,6 +53,7 @@ dependencies:
   
   # Icons
   font_awesome_flutter: ^10.7.0
+  lucide_icons: ^0.1.0
 
 dev_dependencies:
   flutter_test:

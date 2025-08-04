@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'step2_height.dart';
+import 'step3_weight.dart';
+import 'step4_gender.dart';
+import 'step5_age.dart';
+import 'step6_activity_level.dart';
+
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -13,6 +19,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final int totalSteps = 7;
   final TextEditingController fullNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
+
+  // Add height and heightUnit state
+  int height = 170;
+  String heightUnit = 'cm';
+  // Add weight and weightUnit state
+  int weight = 70;
+  String weightUnit = 'kg';
+  // Add gender state
+  String gender = '';
+  // Add age state
+  int age = 25;
+  // Add activityLevel state
+  String activityLevel = '';
 
   List<Map<String, String>> steps = [
     {'title': 'Personal Info', 'description': 'Tell us about yourself'},
@@ -361,7 +380,58 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ],
                       ),
-                    if (currentStep > 1)
+                    if (currentStep == 2)
+                      Step2Height(
+                        height: height,
+                        heightUnit: heightUnit,
+                        onChanged: (newHeight, newUnit) {
+                          setState(() {
+                            height = newHeight;
+                            heightUnit = newUnit;
+                          });
+                        },
+                      ),
+                    if (currentStep == 3)
+                      Step3Weight(
+                        weight: weight,
+                        weightUnit: weightUnit,
+                        height: height,
+                        heightUnit: heightUnit,
+                        onChanged: (newWeight, newUnit) {
+                          setState(() {
+                            weight = newWeight;
+                            weightUnit = newUnit;
+                          });
+                        },
+                      ),
+                    if (currentStep == 4)
+                      Step4Gender(
+                        gender: gender,
+                        onChanged: (newGender) {
+                          setState(() {
+                            gender = newGender;
+                          });
+                        },
+                      ),
+                    if (currentStep == 5)
+                      Step5Age(
+                        age: age,
+                        onChanged: (newAge) {
+                          setState(() {
+                            age = newAge;
+                          });
+                        },
+                      ),
+                    if (currentStep == 6)
+                      Step6ActivityLevel(
+                        activityLevel: activityLevel,
+                        onChanged: (newActivityLevel) {
+                          setState(() {
+                            activityLevel = newActivityLevel;
+                          });
+                        },
+                      ),
+                    if (currentStep > 5)
                       Container(
                         height: 180,
                         alignment: Alignment.center,
