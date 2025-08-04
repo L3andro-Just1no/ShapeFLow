@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import '../providers/app_provider.dart';
+import 'signin_screen.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -244,7 +245,11 @@ class OnboardingScreen extends StatelessWidget {
                              const SizedBox(height: 8),
                              GestureDetector(
                                onTap: () {
-                                 // TODO: Navigate to sign in screen
+                                 Navigator.of(context).push(
+                                   MaterialPageRoute(
+                                     builder: (context) => const SignInScreen(),
+                                   ),
+                                 );
                                },
                                child: Container(
                                  padding: const EdgeInsets.only(bottom: 2),
