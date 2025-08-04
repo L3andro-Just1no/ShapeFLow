@@ -43,22 +43,22 @@ class OnboardingScreen extends StatelessWidget {
             // Content
             SafeArea(
               child: Padding(
-                padding: const EdgeInsets.all(24.0),
+                padding: const EdgeInsets.all(20.0),
                 child: Column(
                   children: [
                     // Header Section
                     Expanded(
-                      flex: 2,
+                      flex: 3,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const SizedBox(height: 64),
+                          const SizedBox(height: 20),
                           
                           // Logo and Brand
                           Row(
                             children: [
                               Container(
-                                padding: const EdgeInsets.all(12),
+                                padding: const EdgeInsets.all(10),
                                 decoration: BoxDecoration(
                                   color: Colors.green.withValues(alpha: 0.2),
                                   borderRadius: BorderRadius.circular(50),
@@ -69,7 +69,7 @@ class OnboardingScreen extends StatelessWidget {
                                 child: const FaIcon(
                                   FontAwesomeIcons.dumbbell,
                                   color: Colors.green,
-                                  size: 28,
+                                  size: 24,
                                 ),
                               ),
                               const SizedBox(width: 12),
@@ -81,7 +81,7 @@ class OnboardingScreen extends StatelessWidget {
                                     style: TextStyle(
                                       color: Colors.green,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 18,
+                                      fontSize: 16,
                                       letterSpacing: 1.0,
                                     ),
                                   ),
@@ -89,7 +89,7 @@ class OnboardingScreen extends StatelessWidget {
                                     'Next-Gen Fitness',
                                     style: TextStyle(
                                       color: Colors.grey[400],
-                                      fontSize: 12,
+                                      fontSize: 11,
                                     ),
                                   ),
                                 ],
@@ -97,13 +97,13 @@ class OnboardingScreen extends StatelessWidget {
                             ],
                           ),
                           
-                          const SizedBox(height: 32),
+                          const SizedBox(height: 24),
                           
                           // Main Heading
                           const Text(
                             'TRANSFORM\nYOUR\n',
                             style: TextStyle(
-                              fontSize: 48,
+                              fontSize: 36,
                               fontWeight: FontWeight.w900,
                               color: Colors.white,
                               height: 1.1,
@@ -117,7 +117,7 @@ class OnboardingScreen extends StatelessWidget {
                             child: const Text(
                               'LIMITS',
                               style: TextStyle(
-                                fontSize: 48,
+                                fontSize: 36,
                                 fontWeight: FontWeight.w900,
                                 color: Colors.white,
                                 height: 1.1,
@@ -126,15 +126,15 @@ class OnboardingScreen extends StatelessWidget {
                             ),
                           ),
                           
-                          const SizedBox(height: 24),
+                          const SizedBox(height: 16),
                           
                           // Description
                           Text(
                             'Unlock your potential with AI-powered workouts designed to push you beyond what you thought possible',
                             style: TextStyle(
                               color: Colors.grey[300],
-                              fontSize: 18,
-                              height: 1.5,
+                              fontSize: 16,
+                              height: 1.4,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -144,13 +144,13 @@ class OnboardingScreen extends StatelessWidget {
                     
                     // Bottom Section
                     Expanded(
-                      flex: 3,
+                      flex: 4,
                       child: Column(
                         children: [
                           // Feature Pills
                           Wrap(
-                            spacing: 12,
-                            runSpacing: 12,
+                            spacing: 8,
+                            runSpacing: 8,
                             children: [
                               _buildFeaturePill(
                                 icon: FontAwesomeIcons.bolt,
@@ -167,12 +167,12 @@ class OnboardingScreen extends StatelessWidget {
                             ],
                           ),
                           
-                          const SizedBox(height: 32),
+                          const SizedBox(height: 24),
                           
                           // Get Started Button
                           SizedBox(
                             width: double.infinity,
-                            height: 64,
+                            height: 56,
                             child: ElevatedButton(
                               onPressed: () {
                                 // TODO: Navigate to next screen
@@ -186,18 +186,18 @@ class OnboardingScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(16),
                                 ),
                                 padding: EdgeInsets.zero,
-                                                             ).copyWith(
-                                 backgroundColor: WidgetStateProperty.all(Colors.transparent),
-                               ),
+                              ).copyWith(
+                                backgroundColor: WidgetStateProperty.all(Colors.transparent),
+                              ),
                               child: Container(
                                 decoration: BoxDecoration(
                                   gradient: const LinearGradient(
                                     colors: [Colors.green, Colors.teal],
                                   ),
                                   borderRadius: BorderRadius.circular(16),
-                                                                   border: Border.all(
-                                   color: Colors.green.withValues(alpha: 0.3),
-                                 ),
+                                  border: Border.all(
+                                    color: Colors.green.withValues(alpha: 0.3),
+                                  ),
                                 ),
                                 child: const Center(
                                   child: Row(
@@ -206,16 +206,16 @@ class OnboardingScreen extends StatelessWidget {
                                       Text(
                                         'Start Your Journey',
                                         style: TextStyle(
-                                          fontSize: 20,
+                                          fontSize: 18,
                                           fontWeight: FontWeight.bold,
                                           color: Colors.white,
                                         ),
                                       ),
-                                      SizedBox(width: 12),
+                                      SizedBox(width: 8),
                                       FaIcon(
                                         FontAwesomeIcons.arrowRight,
                                         color: Colors.white,
-                                        size: 24,
+                                        size: 20,
                                       ),
                                     ],
                                   ),
@@ -224,7 +224,7 @@ class OnboardingScreen extends StatelessWidget {
                             ),
                           ),
                           
-                          const SizedBox(height: 32),
+                          const SizedBox(height: 20),
                           
                           // Sign In Link
                           Column(
@@ -233,21 +233,21 @@ class OnboardingScreen extends StatelessWidget {
                                 'Already crushing your goals?',
                                 style: TextStyle(
                                   color: Colors.grey[400],
-                                  fontSize: 16,
+                                  fontSize: 14,
                                 ),
                               ),
-                              const SizedBox(height: 12),
+                              const SizedBox(height: 8),
                               GestureDetector(
                                 onTap: () {
                                   // TODO: Navigate to sign in screen
                                 },
                                 child: Container(
-                                  padding: const EdgeInsets.only(bottom: 4),
+                                  padding: const EdgeInsets.only(bottom: 2),
                                   decoration: const BoxDecoration(
                                     border: Border(
                                       bottom: BorderSide(
                                         color: Colors.green,
-                                        width: 2,
+                                        width: 1.5,
                                       ),
                                     ),
                                   ),
@@ -256,7 +256,7 @@ class OnboardingScreen extends StatelessWidget {
                                     style: TextStyle(
                                       color: Colors.green,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 18,
+                                      fontSize: 16,
                                     ),
                                   ),
                                 ),
@@ -264,7 +264,7 @@ class OnboardingScreen extends StatelessWidget {
                             ],
                           ),
                           
-                          const SizedBox(height: 32),
+                          const Spacer(),
                           
                           // Stats Section
                           Container(
@@ -275,13 +275,13 @@ class OnboardingScreen extends StatelessWidget {
                                 _buildStatItem('1M+', 'Active Users'),
                                 Container(
                                   width: 1,
-                                  height: 48,
+                                  height: 40,
                                   color: Colors.grey[600],
                                 ),
                                 _buildStatItem('500+', 'Workouts'),
                                 Container(
                                   width: 1,
-                                  height: 48,
+                                  height: 40,
                                   color: Colors.grey[600],
                                 ),
                                 _buildStatItem('98%', 'Success Rate'),
@@ -306,28 +306,28 @@ class OnboardingScreen extends StatelessWidget {
     required String text,
   }) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-             decoration: BoxDecoration(
-         color: Colors.white.withValues(alpha: 0.1),
-         borderRadius: BorderRadius.circular(50),
-         border: Border.all(
-           color: Colors.white.withValues(alpha: 0.2),
-         ),
-       ),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(50),
+        border: Border.all(
+          color: Colors.white.withValues(alpha: 0.2),
+        ),
+      ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           FaIcon(
             icon,
             color: Colors.green,
-            size: 16,
+            size: 14,
           ),
-          const SizedBox(width: 8),
+          const SizedBox(width: 6),
           Text(
             text,
             style: const TextStyle(
               color: Colors.white,
-              fontSize: 14,
+              fontSize: 12,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -344,14 +344,14 @@ class OnboardingScreen extends StatelessWidget {
           style: const TextStyle(
             color: Colors.green,
             fontWeight: FontWeight.w900,
-            fontSize: 24,
+            fontSize: 20,
           ),
         ),
         Text(
           label,
           style: TextStyle(
             color: Colors.grey[400],
-            fontSize: 12,
+            fontSize: 10,
             fontWeight: FontWeight.w500,
           ),
         ),
