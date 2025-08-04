@@ -162,11 +162,11 @@ class _SignInScreenState extends State<SignInScreen> {
                                 filled: true,
                                 fillColor: Colors.white10,
                                 prefixIcon: const Padding(
-                                  padding: EdgeInsets.only(left: 12, right: 8),
+                                  padding: EdgeInsets.only(left: 14, right: 4),
                                   child: FaIcon(FontAwesomeIcons.solidEnvelope, color: Colors.grey, size: 20),
                                 ),
-                                prefixIconConstraints: BoxConstraints(minWidth: 40, minHeight: 40),
-                                contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+                                prefixIconConstraints: BoxConstraints(minWidth: 44),
+                                contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 0),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(16),
                                   borderSide: const BorderSide(color: Colors.white24),
@@ -206,11 +206,11 @@ class _SignInScreenState extends State<SignInScreen> {
                                 filled: true,
                                 fillColor: Colors.white10,
                                 prefixIcon: const Padding(
-                                  padding: EdgeInsets.only(left: 12, right: 8),
+                                  padding: EdgeInsets.only(left: 14, right: 4),
                                   child: FaIcon(FontAwesomeIcons.lock, color: Colors.grey, size: 20),
                                 ),
-                                prefixIconConstraints: BoxConstraints(minWidth: 40, minHeight: 40),
-                                contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+                                prefixIconConstraints: BoxConstraints(minWidth: 44),
+                                contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 0),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(16),
                                   borderSide: BorderSide(color: Colors.white24),
