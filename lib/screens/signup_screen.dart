@@ -5,7 +5,7 @@ import 'step3_weight.dart';
 import 'step4_gender.dart';
 import 'step5_age.dart';
 import 'step6_activity_level.dart';
-
+import 'step7_permissions.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -32,7 +32,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
   int age = 25;
   // Add activityLevel state
   String activityLevel = '';
-
+  // Add formData state
+  Map<String, bool> formData = {};
+  
   List<Map<String, String>> steps = [
     {'title': 'Personal Info', 'description': 'Tell us about yourself'},
     {'title': 'Fitness Goals', 'description': 'What do you want to achieve?'},
@@ -431,7 +433,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           });
                         },
                       ),
-                    if (currentStep > 5)
+                    if (currentStep == 7)
+                      Step7Permissions(
+                        formData: formData,
+                        setFormData: (newData) {
+                          setState(() {
+                            formData = newData;
+                          });
+                        },
+                      ),
+                    if (currentStep > 7)
                       Container(
                         height: 180,
                         alignment: Alignment.center,
